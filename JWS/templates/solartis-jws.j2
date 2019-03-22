@@ -1,0 +1,33 @@
+#!/bin/sh
+#
+# chkconfig:  2345 92 08
+# description: solartis-starrkb-jws  APACHE
+
+ APACHE_HOME={{ Jboss_Home }}/jws/httpd
+APACHE_SERVER={{ Service }}
+
+case $1 in
+start)
+echo "Start - $APACHE_SERVER - EWS Server"
+{{ Jboss_Home }}/jws/httpd/sbin/apachectl start
+;;
+stop)
+echo "Stopping - $APACHE_SERVER - EWS Server"
+{{ Jboss_Home }}/jws/httpd/sbin/apachectl stop
+;;
+graceful)
+echo "Restarting - $APACHE_SERVER - EWS Server"
+{{ Jboss_Home }}/jws/httpd/sbin/apachectl graceful
+;;
+restart)
+echo "Restarting - $APACHE_SERVER - EWS Server"
+{{ Jboss_Home }}/jws/httpd/sbin/apachectl restart
+;;
+status)
+echo "Status - $APACHE_SERVER - EWS Server"
+{{ Jboss_Home }}/jws/httpd/sbin/apachectl status
+;;
+*)
+
+;;
+esac

@@ -1,0 +1,8 @@
+---
+# vars file for JWS
+
+Jboss_Home: /opt/Solartis_Hybrid
+JWS_Path: /opt/Solartis_Packages/jws.zip
+JWS_IP: 10.100.16.23
+Service: solartis-hyb-jws
+JWS_PORT: 7777

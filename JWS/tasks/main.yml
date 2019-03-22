@@ -1,0 +1,5 @@
+---
+# tasks file for JWS
+ - include: copy_package.yml
+ - include: configuration.yml
+ - include: install.yml

@@ -1,0 +1,14 @@
+---
+
+- name: creating directory
+  file: 
+   path: "{{ item }}"
+   state: directory
+  with_items:
+    - "{{ Jboss_Home }}"
+- name: copying files
+  unarchive: src={{ JWS_Path }} dest={{ Jboss_Home }}
+- name: Setting up Permissions
+  shell: |
+   chown -Rf apache:apache {{ Jboss_Home }}/jws
+   chmod -Rf 0755 {{ Jboss_Home }}/jws

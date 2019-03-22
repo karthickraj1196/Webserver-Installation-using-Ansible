@@ -1,0 +1,22 @@
+---
+- name: Setting up Service File
+  template:
+    src: solartis-jws.j2
+    dest: "/etc/init.d/{{ Service }}"
+    mode: 777
+- name: Enabling Service File
+  shell: |
+   cd /etc/init.d/
+   chmod 777 {{ Service }}
+   systemctl enable {{ Service }}
+
+- name: Starting as a service
+  systemd:
+    name: "{{ Service }}"
+    state: started
+   
+- name: Log file
+  shell: |
+   cat {{ Jboss_Home }}/jws/httpd/logs/httpd.log
+   
+...
